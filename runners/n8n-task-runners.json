@@ -2,18 +2,30 @@
   "task-runners": [
     {
       "runner-type": "javascript",
-      "health-check-server-port": "8081",
+      "workdir": "/home/runner",
+      "command": "/usr/local/bin/node",
+      "args": [
+        "--disallow-code-generation-from-strings",
+        "--disable-proto=delete",
+        "/opt/runners/task-runner-javascript/dist/start.js"
+      ],
+      "health-check-server-port": "5681",
       "env-overrides": {
+        "NODE_FUNCTION_ALLOW_EXTERNAL": "pdf-lib,xmlbuilder2",
         "NODE_FUNCTION_ALLOW_BUILTIN": "fs,crypto,path",
-        "NODE_FUNCTION_ALLOW_EXTERNAL": "pdf-lib,xmlbuilder2"
+        "N8N_RUNNERS_HEALTH_CHECK_SERVER_HOST": "0.0.0.0"
       }
     },
     {
       "runner-type": "python",
-      "health-check-server-port": "8082",
+      "workdir": "/home/runner",
+      "command": "/opt/runners/task-runner-python/.venv/bin/python",
+      "args": ["-m", "src.main"],
+      "health-check-server-port": "5682",
       "env-overrides": {
-        "N8N_RUNNERS_STDLIB_ALLOW": "*",
-        "N8N_RUNNERS_EXTERNAL_ALLOW": "*"
+        "PYTHONPATH": "/opt/runners/task-runner-python",
+        "N8N_RUNNERS_STDLIB_ALLOW": "json,datetime",
+        "N8N_RUNNERS_EXTERNAL_ALLOW": ""
       }
     }
   ]
