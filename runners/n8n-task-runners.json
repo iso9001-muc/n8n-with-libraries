@@ -6,6 +6,13 @@
         "NODE_FUNCTION_ALLOW_BUILTIN": "fs,crypto,path",
         "NODE_FUNCTION_ALLOW_EXTERNAL": "pdf-lib,xmlbuilder2"
       }
+    },
+    {
+      "runner-type": "python",
+      "env-overrides": {
+        "N8N_RUNNERS_STDLIB_ALLOW": "*",
+        "N8N_RUNNERS_EXTERNAL_ALLOW": "*"
+      }
     }
   ]
 }
