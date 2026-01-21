@@ -24,8 +24,8 @@
       "health-check-server-port": "5682",
       "env-overrides": {
         "PYTHONPATH": "/opt/runners/task-runner-python",
-        "N8N_RUNNERS_STDLIB_ALLOW": "json,datetime",
-        "N8N_RUNNERS_EXTERNAL_ALLOW": ""
+        "N8N_RUNNERS_STDLIB_ALLOW": "json,datetime,sys,hashlib",
+        "N8N_RUNNERS_EXTERNAL_ALLOW": "requests"
       }
     }
   ]
